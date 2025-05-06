@@ -9,14 +9,14 @@ package model;
  * @author sofia
  */
 public class Producto {
-    int id;
-    String nombre;
-    String descripcion;
-    String fechaCaducidad;
-    int cantidad;
-    float precio;
+    private int id;
+    private String nombre;
+    private String descripcion;
+    private String fechaCaducidad;
+    private int cantidad;
+    private float precio;
 
-    Producto(int id, String nombre, String descripcion, String fechaCaducidad, int cantidad, float precio) {
+    public Producto(int id, String nombre, String descripcion, String fechaCaducidad, int cantidad, float precio) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
