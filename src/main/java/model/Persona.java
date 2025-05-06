@@ -9,15 +9,15 @@ package model;
  * @author sofia
  */
 public class Persona {
-    int id;
-    String nombre;
-    String apellido;
-    int edad;
-    String correo;
-    String rol;
-    String password;
+    private int id;
+    private String nombre;
+    private String apellido;
+    private int edad;
+    private String correo;
+    private String rol;
+    private String password;
 
-    Persona(int id, String nombre, String apellido, int edad, String correo, String rol, String password) {
+    public Persona(int id, String nombre, String apellido, int edad, String correo, String rol, String password) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
