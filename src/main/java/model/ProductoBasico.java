@@ -4,25 +4,29 @@
  */
 package model;
 
+import interfaces.Producto;
+
 /**
  *
  * @author sofia
  */
-public class Producto {
+public class ProductoBasico implements Producto{
     private int id;
     private String nombre;
     private String descripcion;
     private String fechaCaducidad;
     private int cantidad;
     private float precio;
+    private String categoria;
 
-    public Producto(int id, String nombre, String descripcion, String fechaCaducidad, int cantidad, float precio) {
+    public ProductoBasico(int id, String nombre, String descripcion, String fechaCaducidad, int cantidad, float precio, String categoria) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaCaducidad = fechaCaducidad;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.categoria = categoria;
     }
 
     @Override
@@ -71,11 +75,20 @@ public class Producto {
     }
 
     public float getPrecio() {
-        return precio;
+        return 10;
     }
 
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+
+    public String getCategoria() {
+        return "basico";
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
     
 }
