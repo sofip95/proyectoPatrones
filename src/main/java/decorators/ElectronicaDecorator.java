@@ -25,7 +25,7 @@ public class ElectronicaDecorator extends ProductoDecorator {
 
     @Override
     public float getPrecio() {
-        return 12;
-    }
+        return 12;
+    }
     
 }
