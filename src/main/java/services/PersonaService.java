@@ -4,10 +4,12 @@
  */
 package services;
 
+import exception.InvalidPersonaDataException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Persona;
 import repositories.PersonaRepository;
+import validators.PersonaValidator;
 
 /**
  *
