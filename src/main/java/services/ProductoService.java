@@ -4,6 +4,9 @@
  */
 package services;
 
+import decorators.AseoDecorator;
+import decorators.ComidaDecorator;
+import decorators.ElectronicaDecorator;
 import exception.InvalidProductoDataException;
 import interfaces.Producto;
 import java.sql.SQLException;
@@ -12,6 +15,7 @@ import repositories.ProductoRepository;
 import strategies.SearchById;
 import strategies.SearchByName;
 import strategies.SearchStrategy;
+import validators.ProductoValidator;
 
 /**
  *
