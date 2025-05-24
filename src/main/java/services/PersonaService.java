@@ -10,14 +10,34 @@ import java.util.ArrayList;
 import model.Persona;
 import repositories.PersonaRepository;
 import validators.PersonaValidator;
+import interfaces.Observer;
+import interfaces.Subject;
 
 /**
  *
  * @author Victus
  */
-public class PersonaService {
+public class PersonaService implements Subject {
 
     private PersonaRepository personaRepository = new PersonaRepository();
+    private ArrayList<Observer> observers = new ArrayList<>();
+
+    @Override
+    public void registerObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer o : observers) {
+            o.update();
+        }
+    }
 
     public Persona getPersonaById(int id) throws SQLException {
         return personaRepository.findById(id);
@@ -29,6 +49,7 @@ public class PersonaService {
         }
         Persona persona = new Persona(id, nombre, apellido, edad, correo, rol, password);
         personaRepository.save(persona);
+        notifyObservers();
     }
 
     public boolean updatePersona(int id, String nombre, String apellido, int edad, String correo, String rol, String password) throws SQLException, InvalidPersonaDataException {
@@ -43,6 +64,7 @@ public class PersonaService {
 
         Persona updatedPersona = new Persona(id, nombre, apellido, edad, correo, rol, password);
         personaRepository.updateUser(updatedPersona);
+        notifyObservers();
         return true;
     }
 
@@ -53,6 +75,7 @@ public class PersonaService {
         }
 
         personaRepository.deleteUser(id);
+        notifyObservers();
         return true;
     }
 
