@@ -20,7 +20,7 @@ public class ElectronicaDecorator extends ProductoDecorator {
 
     @Override
     public String getCategoria() {
-        return "Electrodomestico";
+        return "Electronica";
     }
 
     @Override

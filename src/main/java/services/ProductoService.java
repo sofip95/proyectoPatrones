@@ -11,6 +11,7 @@ import exception.InvalidProductoDataException;
 import interfaces.Producto;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import repositories.ProductoRepository;
 import strategies.SearchById;
 import strategies.SearchByName;
@@ -113,11 +114,35 @@ public class ProductoService {
             case "comida":
                 return new ComidaDecorator(producto);
             case "electronica":
-            case "electrodomestico":
                 return new ElectronicaDecorator(producto);
             default:
                 return producto;
         }
+    }
+    
+      public DefaultTableModel llenarTabla() throws SQLException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"Id", "Nombre", "Cantidad", "Categoría", "Descripción", "Fecha Caducidad", "Precio"});
+
+        try {
+            for (int i = 0; i < getAllProductos().size(); i++) {
+                Producto aux = getAllProductos().get(i);
+                modelo.addRow(new Object[]{
+                    aux.getId(),
+                    aux.getNombre(),
+                    aux.getCantidad(),
+                    aux.getCategoria(),
+                    aux.getDescripcion(),
+                    aux.getFechaCaducidad(),
+                    aux.getPrecio()
+                });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al listar productos: " + ex.getMessage());
+            throw ex;
+        }
+
+        return modelo;
     }
 }
 
