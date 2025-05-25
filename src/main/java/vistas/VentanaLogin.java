@@ -4,18 +4,25 @@
  */
 package vistas;
 
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import model.Persona;
+import services.PersonaService;
+
 /**
  *
  * @author JUAN
  */
 public class VentanaLogin extends javax.swing.JFrame {
-
+    PersonaService personaS;
+    
     /**
      * Creates new form VentanaLogin
      */
     public VentanaLogin() {
         initComponents();
         setLocationRelativeTo(this);
+        this.personaS = new PersonaService();
     }
 
     /**
@@ -32,14 +39,14 @@ public class VentanaLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
         btnIniciarSesion = new javax.swing.JButton();
+        txtPassword = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("LOGIN"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "LOGIN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP));
 
         jLabel2.setText("ID:");
 
@@ -56,26 +63,25 @@ public class VentanaLogin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtId)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(btnIniciarSesion)))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(btnIniciarSesion)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -83,9 +89,9 @@ public class VentanaLogin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(37, 37, 37)
                 .addComponent(btnIniciarSesion)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -110,6 +116,32 @@ public class VentanaLogin extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         // TODO add your handling code here:
+        if(txtId.getText().isEmpty()||txtPassword.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Relleno los campos");
+        }else{
+           try{
+            int id = Integer.parseInt(txtId.getText());
+            String contrasenia = txtPassword.getText();
+            boolean success = personaS.login(id, contrasenia);
+            if(success){
+            Persona aux = personaS.getPersonaById(id);
+                if(aux.getRol().equals("Admin")){
+                VistaGestionEmpleado vc = new VistaGestionEmpleado();
+                vc.setVisible(true);
+                this.dispose();
+                }else if(aux.getRol().equals("Empleado")){
+                VistaGestionProducto vc = new VistaGestionProducto();
+                vc.setVisible(true);
+                this.dispose();
+                }
+
+            }else{
+            JOptionPane.showMessageDialog(null, "Datos erróneos");
+            }
+           }catch (SQLException ex) {
+            ex.getMessage();
+            }
+        }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     /**
@@ -154,6 +186,6 @@ public class VentanaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtId;
-    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

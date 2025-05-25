@@ -12,6 +12,7 @@ import repositories.PersonaRepository;
 import validators.PersonaValidator;
 import interfaces.Observer;
 import interfaces.Subject;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,6 +38,10 @@ public class PersonaService implements Subject {
         for (Observer o : observers) {
             o.update();
         }
+    }
+
+    public boolean login(int id, String password) {
+        return personaRepository.login(id, password);
     }
 
     public Persona getPersonaById(int id) throws SQLException {
@@ -82,5 +87,28 @@ public class PersonaService implements Subject {
     public ArrayList<Persona> listarEmpleados() throws SQLException {
         return personaRepository.listarEmpleados();
     }
-}
 
+    public DefaultTableModel llenarTabla() throws SQLException {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"Id", "Nombre", "Apellido", "Edad", "Correo", "Contraseña"});
+
+        try {
+            for (int i = 0; i < listarEmpleados().size(); i++) {
+                Persona aux = listarEmpleados().get(i);
+                modelo.addRow(new Object[]{
+                    aux.getId(),
+                    aux.getNombre(),
+                    aux.getApellido(),
+                    aux.getEdad(),
+                    aux.getCorreo(),
+                    aux.getPassword()
+                });
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al listar empleados: " + ex.getMessage());
+            throw ex;
+        }
+
+        return modelo;
+    }
+}

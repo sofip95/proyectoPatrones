@@ -75,7 +75,7 @@ public class ProductoBasico implements Producto{
     }
 
     public float getPrecio() {
-        return 10;
+        return precio;
     }
 
     public void setPrecio(float precio) {
@@ -83,7 +83,7 @@ public class ProductoBasico implements Producto{
     }
 
     public String getCategoria() {
-        return "basico";
+        return categoria;
     }
 
     public void setCategoria(String categoria) {

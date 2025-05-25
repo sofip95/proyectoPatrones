@@ -45,8 +45,8 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Gestion Empleados">
-              <Font PropertyName="font" name="Segoe UI" size="18" style="0"/>
+            <TitledBorder title="Gestion Empleado">
+              <Font PropertyName="font" name="Dialog" size="18" style="0"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -55,10 +55,22 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="btnAgregar" alignment="1" pref="87" max="32767" attributes="0"/>
+                              <Component id="btnBuscar" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnEliminar" alignment="0" pref="83" max="32767" attributes="0"/>
+                              <Component id="btnEditar" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -69,39 +81,40 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtId" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="txtNombre" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="txtApellido" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="txtEdad" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="txtCorreo" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="txtPassword" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="txtId" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="txtNombre" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="txtApellido" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="txtEdad" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="txtCorreo" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="txtPassword" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="btnAgregar" max="32767" attributes="0"/>
-                              <Component id="btnBuscar" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnEliminar" min="-2" pref="83" max="-2" attributes="0"/>
-                              <Component id="btnEditar" min="-2" pref="83" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btnVolver" min="-2" pref="100" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jScrollPane1" alignment="0" pref="486" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jScrollPane1" alignment="1" min="-2" pref="343" max="-2" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="343" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtId" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -131,7 +144,12 @@
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnEditar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -149,6 +167,70 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JTextField" name="txtEdad">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtApellido">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnVolver">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Volver"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNombre">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtId">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAgregar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="AGREGAR"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnEditar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="EDITAR"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBuscar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BUSCAR"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnEliminar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ELIMINAR"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
+          </Events>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="tblEmpleados">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="0" rowCount="0"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="text" type="java.lang.String" value="ID:"/>
@@ -183,51 +265,14 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtCorreo">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtEdad">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtApellido">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNombre">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtId">
-        </Component>
-        <Component class="javax.swing.JButton" name="btnAgregar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="AGREGAR"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnEditar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="EDITAR"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnBuscar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="BUSCAR"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnEliminar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ELIMINAR"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="tblEmpleados">
+            <Component class="javax.swing.JTextArea" name="jTextArea1">
               <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                  </Table>
-                </Property>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
               </Properties>
             </Component>
           </SubComponents>
